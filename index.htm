@@ -11,6 +11,7 @@
 <button type="button" id="btn" onclick="startLove()" style="border:none; background:none; cursor:pointer;">
   <img src="button.png" alt="Submit" width="400" height="400">
 </button>
+ <div id="scrollHint">Scroll down for your gift ↓</div>
 <div id="heart1">
 <img src="redheart.png" alt="heart1" style="width:600px; height:600px;">
 </div>
@@ -54,6 +55,11 @@
 
 
 <audio id="loveSong" src="love.mp3" preload="auto"></audio>
+<div style="height: 120vh;"></div>
+  <div id="gift">
+  <img src="bouquet.png" alt="Flowers">
+</div>
+
 
 <script>
 function startLove() {
@@ -107,7 +113,10 @@ heart11.style.animationName = "myAnimation";
 heart12.style.animationName = "myAnimation";
 
 setTimeout(() => { sash.style.display="block";sash.style.opacity='1'; sash.style.animationName = "myAnimation"; }, 2000);
-
+setTimeout(() => {
+  document.getElementById("scrollHint").style.display = "block";
+  document.body.style.overflowY = "scroll";
+}, 6000); 
 
 
   // play music
@@ -281,9 +290,38 @@ to{bottom:100vh;}
    font-family: 'Brush Script MT', cursive;
   letter-spacing: 2px;
 }
+#scrollHint{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: 32px;
+  color: #fff8dc;
+  text-shadow: 2px 2px 8px black;
+  display: none;
+  animation: fadeIn 2s ease forwards;
+}
+
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+#gift{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+#gift img{
+  width: 500px;
+  animation: fadeIn 3s ease forwards;
+}
 
 </style>
 </html>
+
 
 
 
